@@ -21,5 +21,33 @@ namespace MessageBoardClient.Models
 
       return messageList;
     }
+
+    public static Message GetDetails(int id)
+    {
+      Task<string> apiCallTask = ApiHelper.Get(id);
+      string result = apiCallTask.Result;
+
+      JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
+      Message message = JsonConvert.DeserializeObject<Message>(jsonResponse.ToString());
+
+      return message;
+    }
+
+    public static void Post(Message message)
+    {
+      string jsonMessage = JsonConvert.SerializeObject(message);
+      ApiHelper.Post(jsonMessage);
+    }
+
+    public static void Put(Message message)
+    {
+      string jsonMessage = JsonConvert.SerializeObject(message);
+      ApiHelper.Put(message.MessageId, jsonMessage);
+    }
+
+    public static void Delete(int id)
+    {
+      ApiHelper.Delete(id);
+    }
   }
 }
