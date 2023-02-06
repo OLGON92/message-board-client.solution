@@ -1,0 +1,23 @@
+@{
+  ViewData["Title"] = "Messages";
+}
+
+@model MessageBoardClient.Models.Message
+
+<h4>Add a new message to the board</h4>
+<hr />
+
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.UserName)
+  @Html.TextAreaFor(model => model.UserName)
+  <br>
+  @Html.LabelFor(model => model.Comment)
+  @Html.TextAreaFor(model => model.Comment)
+  <br>
+  @Html.LabelFor(model => model.Group)
+  @Html.TextAreaFor(model => model.Group)
+  <br>
+
+
+}

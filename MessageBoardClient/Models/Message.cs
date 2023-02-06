@@ -24,8 +24,8 @@ namespace MessageBoardClient.Models
 
     public static Message GetDetails(int id)
     {
-      Task<string> apiCallTask = ApiHelper.Get(id);
-      string result = apiCallTask.Result;
+      var apiCallTask = ApiHelper.Get(id);
+      var result = apiCallTask.Result;
 
       JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
       Message message = JsonConvert.DeserializeObject<Message>(jsonResponse.ToString());

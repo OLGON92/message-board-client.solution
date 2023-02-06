@@ -1,0 +1,17 @@
+@{
+    ViewData["Title"] = "Messages";
+}
+
+<h1>All Message Board Messages</h1>
+
+<h3>Actions:</h3>
+
+<p>@Html.ActionLink("Add a new message to the message board", "Create")</p>
+
+<h3>Messages:</h3>
+<ol>
+  @foreach (Message message in Model)
+  {
+    <li><strong>@message.UserName</strong> in @message.Group | Comment: @message.Comment</li>
+  }
+</ol>
