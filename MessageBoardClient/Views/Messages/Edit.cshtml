@@ -1,0 +1,23 @@
+@{
+  ViewData["Title"] = $"Edit {Model.MessageId}";
+}
+
+@model MessageBoardClient.Models.Message
+
+<h4>Edit @Model.MessageId</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.MessageId)
+  @Html.LabelFor(model => model.UserName, new { @class = "control-label" })
+  @Html.TextBoxFor(model => model.UserName, new { @class = "form-control", @Value = Model.UserName })
+  <br>
+  @Html.LabelFor(model => model.Group, new { @class = "control-label" })
+  @Html.TextBoxFor(model => model.Group, new { @class = "form-control", @Value = Model.Group })
+  <br>
+  @Html.LabelFor(model => model.Comment, new { @class = "control-label" })
+  @Html.TextBoxFor(model => model.Comment, new { @class = "form-control", @Value = Model.Comment})
+  <br>
+  <br>
+  <input type="submit" value="Edit message" class="btn btn-danger"/>
+}

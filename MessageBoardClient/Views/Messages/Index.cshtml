@@ -12,6 +12,6 @@
 <ol>
   @foreach (Message message in Model)
   {
-    <li><strong>@message.UserName</strong> in @message.Group | Comment: @message.Comment</li>
+    <li><strong>@message.UserName</strong> in @message.Group | <a href="/Messages/Details/@(message.MessageId)">View Details</a></li>
   }
 </ol>

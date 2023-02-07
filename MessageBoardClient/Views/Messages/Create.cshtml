@@ -9,15 +9,18 @@
 
 @using (Html.BeginForm())
 {
-  @Html.LabelFor(model => model.UserName)
-  @Html.TextAreaFor(model => model.UserName)
+  @Html.LabelFor(model => model.UserName, new { @class = "control-label" })
+  @Html.TextAreaFor(model => model.UserName, new { @class = "form-control", @required = "required" })
   <br>
-  @Html.LabelFor(model => model.Comment)
-  @Html.TextAreaFor(model => model.Comment)
+  @Html.LabelFor(model => model.Comment, new { @class = "control-label" })
+  @Html.TextAreaFor(model => model.Comment, new { @class = "form-control", @required = "required" })
   <br>
-  @Html.LabelFor(model => model.Group)
-  @Html.TextAreaFor(model => model.Group)
+  @Html.LabelFor(model => model.Group, new { @class = "control-label" })
+  @Html.TextAreaFor(model => model.Group, new { @class = "form-control", @required = "required" })
   <br>
-
-
+  <br>
+  <input type="submit" value="add new message" class="btn btn-danger"/>
 }
+
+<br>
+<p>@Html.ActionLink("back to all messages", "Index")</p>

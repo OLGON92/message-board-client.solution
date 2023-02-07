@@ -9,6 +9,7 @@
 <p>Comment: @Model.Comment</p>
 <p>Date posted: @Model.Date</p>
 
-<p>@Html.ActionLink("Edit message", "Edit", new { id = @Model.MessageId })</p>
-<p>@Html.ActionLink("Delete animal", "Delete", new { id = @Model.AnimalId })</p>
+<p>@Html.ActionLink("Edit message", "Edit", new { id = @Model.MessageId }, new { @class="btn btn-outline-secondary"})</p>
+<p>@Html.ActionLink("Create message", "Create", new { id = @Model.MessageId }, new { @class="btn btn-outline-secondary"})</p>
+<p>@Html.ActionLink("Delete message", "Delete", new { id = @Model.MessageId }, new { @class="btn btn-outline-secondary"})</p>
 <p>@Html.ActionLink("Return to all messages", "Index")</p>
