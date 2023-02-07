@@ -8,7 +8,7 @@ namespace MessageBoardClient.Models
     public static async Task<string> GetAll()
     {
       RestClient client = new RestClient("http://localhost:1986/");
-      RestRequest request = new RestRequest($"api/messages", Method.Get);
+      RestRequest request = new RestRequest($"api/v2/messages", Method.Get);
       RestResponse response = await client.GetAsync(request);
       return response.Content;
     }
@@ -16,7 +16,7 @@ namespace MessageBoardClient.Models
     public static async Task<string> Get(int id)
     {
       RestClient client = new RestClient("http://localhost:1986/");
-      RestRequest request = new RestRequest($"api/messages/{id}", Method.Get);
+      RestRequest request = new RestRequest($"api/v2/messages/{id}", Method.Get);
       RestResponse response = await client.GetAsync(request);
       return response.Content;
     }
@@ -24,7 +24,7 @@ namespace MessageBoardClient.Models
     public static async void Post(string newMessage)
     {
       RestClient client = new RestClient("http://localhost:1986/");
-      RestRequest request = new RestRequest($"api/messages", Method.Post);
+      RestRequest request = new RestRequest($"api/v2/messages", Method.Post);
       request.AddHeader("Content-Type", "application/json");
       request.AddJsonBody(newMessage);
       await client.PostAsync(request);
@@ -33,7 +33,7 @@ namespace MessageBoardClient.Models
     public static async void Put(int id, string newMessage)
     {
       RestClient client = new RestClient("http://localhost:1986/");
-      RestRequest request = new RestRequest($"api/messages/{id}", Method.Put);
+      RestRequest request = new RestRequest($"api/v2/messages/{id}", Method.Put);
       request.AddHeader("Content-Type", "application/json");
       request.AddJsonBody(newMessage);
       await client.PutAsync(request);
@@ -42,7 +42,7 @@ namespace MessageBoardClient.Models
     public static async void Delete(int id)
     {
       RestClient client = new RestClient("http://localhost:1986/");
-      RestRequest request = new RestRequest($"api/messages/{id}", Method.Delete);
+      RestRequest request = new RestRequest($"api/v2/messages/{id}", Method.Delete);
       request.AddHeader("Content-Type", "application/json");
       await client.DeleteAsync(request);
     }

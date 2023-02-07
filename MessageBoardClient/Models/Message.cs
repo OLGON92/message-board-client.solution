@@ -35,6 +35,8 @@ namespace MessageBoardClient.Models
 
     public static void Post(Message message)
     {
+      message.Date = DateTime.Now;
+      // this line will add current time before it hits the API
       string jsonMessage = JsonConvert.SerializeObject(message);
       ApiHelper.Post(jsonMessage);
     }
